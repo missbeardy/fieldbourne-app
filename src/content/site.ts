@@ -117,7 +117,7 @@ export const integrations = [
   { name: "Email", sub: "Any provider", icon: "Mail" },
   { name: "Calendar", sub: "Google · Apple", icon: "Calendar" },
   { name: "Payments", sub: "Stripe", icon: "CreditCard" },
-  { name: "Facebook & Instagram", sub: "Meta lead ads", icon: "Facebook" },
+  { name: "Facebook & Instagram", sub: "Meta lead ads", icon: "Share2" },
   { name: "Google", sub: "Business & Ads", icon: "Search" },
   { name: "Xero", sub: "Soon", icon: "Receipt", soon: true },
   { name: "MYOB", sub: "Soon", icon: "BarChart3", soon: true },
