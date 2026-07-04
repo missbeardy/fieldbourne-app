@@ -98,8 +98,9 @@
 
 @utility grid-fade {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+    linear-gradient(to right, oklch(0.24 0.04 145 / 6%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.24 0.04 145 / 6%) 1px, transparent 1px);
+
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
 }
