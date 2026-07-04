@@ -13,7 +13,9 @@ export function Footer() {
                 <Wrench className="h-4.5 w-4.5" strokeWidth={2.75} />
               </span>
               <span className="text-lg font-black tracking-tight">
-                FieldBourne<span className="text-brand">.</span>
+                <span className="text-brand">Field</span>
+                <span className="text-cyan-accent">Bourne</span>
+                <span className="text-brand">.</span>
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">

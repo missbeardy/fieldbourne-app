@@ -29,7 +29,8 @@ export function Nav() {
             <Wrench className="h-4.5 w-4.5" strokeWidth={2.75} />
           </span>
           <span className="truncate text-base font-black tracking-tight sm:text-lg">
-            FieldBourne
+            <span className="text-brand">Field</span>
+            <span className="text-cyan-accent">Bourne</span>
             <span className="text-brand">.</span>
           </span>
         </Link>
