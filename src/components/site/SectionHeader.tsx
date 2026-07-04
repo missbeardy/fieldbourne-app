@@ -5,15 +5,18 @@ type Props = {
   title: ReactNode;
   subtitle?: ReactNode;
   align?: "left" | "center";
+  accent?: "brand" | "yellow";
 };
 
-export function SectionHeader({ eyebrow, title, subtitle, align = "left" }: Props) {
+export function SectionHeader({ eyebrow, title, subtitle, align = "left", accent = "brand" }: Props) {
   const alignCls = align === "center" ? "text-center mx-auto" : "text-left";
+  const textCls = accent === "yellow" ? "text-cyan-accent" : "text-brand";
+  const lineCls = accent === "yellow" ? "bg-cyan-accent" : "bg-brand";
   return (
     <div className={`max-w-3xl ${alignCls}`}>
       {eyebrow && (
-        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brand">
-          <span className="h-px w-8 bg-brand" />
+        <div className={`mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] ${textCls}`}>
+          <span className={`h-px w-8 ${lineCls}`} />
           {eyebrow}
         </div>
       )}
