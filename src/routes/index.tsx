@@ -141,7 +141,7 @@ function CompanionCard() {
                 key={s.label}
                 className="rounded-xl border border-hairline bg-foreground/[0.04] p-3 text-center"
               >
-                <div className="text-2xl font-black text-brand sm:text-3xl">
+                <div className="text-2xl font-black text-cyan-accent sm:text-3xl">
                   {s.value}
                 </div>
                 <div className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -234,6 +234,7 @@ function ProblemBand() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <SectionHeader
           eyebrow="Sound familiar?"
+          accent="yellow"
           title={
             <>
               Your tools don't talk to each other.{" "}
@@ -249,7 +250,7 @@ function ProblemBand() {
               key={s.label}
               className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-brand/40"
             >
-              <div className="text-5xl font-black text-brand sm:text-6xl">{s.value}</div>
+              <div className="text-5xl font-black text-cyan-accent sm:text-6xl">{s.value}</div>
               <div className="mt-2 text-sm font-bold uppercase tracking-widest text-foreground">
                 {s.label}
               </div>
