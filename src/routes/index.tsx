@@ -169,7 +169,7 @@ function CompanionCard() {
             <FeedRow
               icon={<Users className="h-4 w-4" />}
               tag="Assigned"
-              tagColor="text-emerald-400"
+              tagColor="text-cyan-accent"
               title="Job #1041 · In progress"
               sub="Tech: Jake"
             />
@@ -188,7 +188,7 @@ function CompanionCard() {
             </span>
             <a
               href={site.caseStudyUrl}
-              className="inline-flex items-center gap-1 font-bold text-brand hover:text-brand-glow"
+              className="inline-flex items-center gap-1 rounded-lg bg-cyan-accent/90 px-3 py-1.5 text-xs font-bold text-foreground hover:bg-cyan-accent"
             >
               Case study <ArrowRight className="h-3.5 w-3.5" />
             </a>
