@@ -268,25 +268,26 @@ function ProblemBand() {
 
 function PathsSection() {
   return (
-    <section id="paths" className="relative">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <SectionHeader
-          eyebrow="Which sounds like you?"
-          title="Same platform. Different entry point."
-          subtitle="Solo operators and franchise head offices need different things. Pick the path that fits and we'll take you to the right next step."
-        />
+      <section id="paths" className="relative">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+          <SectionHeader
+            eyebrow="Which sounds like you?"
+            accent="yellow"
+            title="Same platform. Different entry point."
+            subtitle="Solo operators and franchise head offices need different things. Pick the path that fits and we'll take you to the right next step."
+          />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {paths.map((p, i) => (
-            <div
-              key={p.tag}
-              className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-brand/50 sm:p-10"
-            >
-              <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-brand" />
-              <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-brand/60" />
-              <div className="text-xs font-bold uppercase tracking-[0.25em] text-brand">
-                {p.tag}
-              </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {paths.map((p, i) => (
+              <div
+                key={p.tag}
+                className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-cyan-accent/40 sm:p-10"
+              >
+                <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-cyan-accent" />
+                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-cyan-accent/60" />
+                <div className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
+                  {p.tag}
+                </div>
               <h3 className="mt-3 text-3xl font-black tracking-tight text-foreground sm:text-4xl">
                 {p.title}
               </h3>
@@ -341,7 +342,7 @@ function OutcomesSection() {
                     <Icon className="h-6 w-6" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-widest text-brand">
+                    <div className="text-xs font-bold uppercase tracking-widest text-cyan-accent">
                       {o.n}
                     </div>
                     <h3 className="mt-1 text-xl font-black tracking-tight text-foreground sm:text-2xl">
@@ -364,10 +365,10 @@ function OutcomesSection() {
 function FinalCTA() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-brand/[0.04] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-cyan-accent/[0.06] to-transparent" />
       <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 md:py-28 lg:px-8">
-        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-brand">
-          <span className="h-px w-8 bg-brand" /> Let's talk
+        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
+          <span className="h-px w-8 bg-cyan-accent" /> Let's talk
         </div>
         <h2 className="text-4xl font-black leading-tight tracking-tighter text-foreground sm:text-5xl md:text-6xl">
           Twenty minutes is all it takes to see if we're a fit.
