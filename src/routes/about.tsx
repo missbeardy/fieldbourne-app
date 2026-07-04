@@ -49,7 +49,7 @@ function About() {
               D
             </div>
             <div>
-              <Quote className="h-8 w-8 text-brand" />
+              <Quote className="h-8 w-8 text-cyan-accent" />
               <blockquote className="mt-4 text-xl leading-relaxed text-foreground sm:text-2xl">
                 "I'm Darren. I built FieldBourne Digital because I kept seeing tradies
                 duct-taping spreadsheets, text messages and calendars together, losing

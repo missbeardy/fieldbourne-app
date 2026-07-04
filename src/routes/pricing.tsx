@@ -32,6 +32,7 @@ function Pricing() {
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8">
           <SectionHeader
             eyebrow="Same platform. Different entry point."
+            accent="yellow"
             title="Pick the path that fits your business."
             subtitle="Solo operators and franchise head offices need different things. We take you to the right next step from here."
           />
@@ -46,8 +47,8 @@ function Pricing() {
                 key={p.tag}
                 className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-brand/50 sm:p-10"
               >
-                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-brand/60" />
-                <div className="text-xs font-bold uppercase tracking-[0.25em] text-brand">
+                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-cyan-accent/60" />
+                <div className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
                   {p.tag}
                 </div>
                 <h3 className="mt-3 text-3xl font-black tracking-tight text-foreground sm:text-4xl">

@@ -141,7 +141,7 @@ function CompanionCard() {
                 key={s.label}
                 className="rounded-xl border border-hairline bg-foreground/[0.04] p-3 text-center"
               >
-                <div className="text-2xl font-black text-brand sm:text-3xl">
+                <div className="text-2xl font-black text-cyan-accent sm:text-3xl">
                   {s.value}
                 </div>
                 <div className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -169,7 +169,7 @@ function CompanionCard() {
             <FeedRow
               icon={<Users className="h-4 w-4" />}
               tag="Assigned"
-              tagColor="text-emerald-400"
+              tagColor="text-cyan-accent"
               title="Job #1041 · In progress"
               sub="Tech: Jake"
             />
@@ -188,7 +188,7 @@ function CompanionCard() {
             </span>
             <a
               href={site.caseStudyUrl}
-              className="inline-flex items-center gap-1 font-bold text-brand hover:text-brand-glow"
+              className="inline-flex items-center gap-1 rounded-lg bg-cyan-accent/90 px-3 py-1.5 text-xs font-bold text-foreground hover:bg-cyan-accent"
             >
               Case study <ArrowRight className="h-3.5 w-3.5" />
             </a>
@@ -234,6 +234,7 @@ function ProblemBand() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <SectionHeader
           eyebrow="Sound familiar?"
+          accent="yellow"
           title={
             <>
               Your tools don't talk to each other.{" "}
@@ -249,7 +250,7 @@ function ProblemBand() {
               key={s.label}
               className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-brand/40"
             >
-              <div className="text-5xl font-black text-brand sm:text-6xl">{s.value}</div>
+              <div className="text-5xl font-black text-cyan-accent sm:text-6xl">{s.value}</div>
               <div className="mt-2 text-sm font-bold uppercase tracking-widest text-foreground">
                 {s.label}
               </div>
@@ -267,25 +268,26 @@ function ProblemBand() {
 
 function PathsSection() {
   return (
-    <section id="paths" className="relative">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <SectionHeader
-          eyebrow="Which sounds like you?"
-          title="Same platform. Different entry point."
-          subtitle="Solo operators and franchise head offices need different things. Pick the path that fits and we'll take you to the right next step."
-        />
+      <section id="paths" className="relative">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+          <SectionHeader
+            eyebrow="Which sounds like you?"
+            accent="yellow"
+            title="Same platform. Different entry point."
+            subtitle="Solo operators and franchise head offices need different things. Pick the path that fits and we'll take you to the right next step."
+          />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {paths.map((p, i) => (
-            <div
-              key={p.tag}
-              className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-brand/50 sm:p-10"
-            >
-              <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-brand" />
-              <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-brand/60" />
-              <div className="text-xs font-bold uppercase tracking-[0.25em] text-brand">
-                {p.tag}
-              </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {paths.map((p, i) => (
+              <div
+                key={p.tag}
+                className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-cyan-accent/40 sm:p-10"
+              >
+                <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-cyan-accent" />
+                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-cyan-accent/60" />
+                <div className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
+                  {p.tag}
+                </div>
               <h3 className="mt-3 text-3xl font-black tracking-tight text-foreground sm:text-4xl">
                 {p.title}
               </h3>
@@ -340,7 +342,7 @@ function OutcomesSection() {
                     <Icon className="h-6 w-6" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-widest text-brand">
+                    <div className="text-xs font-bold uppercase tracking-widest text-cyan-accent">
                       {o.n}
                     </div>
                     <h3 className="mt-1 text-xl font-black tracking-tight text-foreground sm:text-2xl">
@@ -363,10 +365,10 @@ function OutcomesSection() {
 function FinalCTA() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-brand/[0.04] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-cyan-accent/[0.06] to-transparent" />
       <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 md:py-28 lg:px-8">
-        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-brand">
-          <span className="h-px w-8 bg-brand" /> Let's talk
+        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
+          <span className="h-px w-8 bg-cyan-accent" /> Let's talk
         </div>
         <h2 className="text-4xl font-black leading-tight tracking-tighter text-foreground sm:text-5xl md:text-6xl">
           Twenty minutes is all it takes to see if we're a fit.
