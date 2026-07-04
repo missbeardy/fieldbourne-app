@@ -40,7 +40,7 @@ export function Nav() {
               <Link
                 key={item.to}
                 to={item.to}
-                activeProps={{ className: "text-foreground bg-white/[0.06]" }}
+                activeProps={{ className: "text-foreground bg-foreground/[0.07]" }}
                 inactiveProps={{ className: "text-muted-foreground" }}
                 className="rounded-lg px-3 py-2 text-sm font-semibold transition-colors hover:text-foreground"
               >
@@ -57,7 +57,7 @@ export function Nav() {
           <button
             aria-label="Open menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-hairline bg-white/[0.03] md:hidden"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-hairline bg-foreground/[0.04] md:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

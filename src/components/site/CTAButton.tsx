@@ -21,7 +21,7 @@ export function CTAButton({
   const styles =
     variant === "primary"
       ? "bg-brand text-brand-foreground shadow-[0_10px_40px_-10px_var(--brand)] hover:bg-brand-glow hover:-translate-y-0.5"
-      : "border border-white/15 bg-white/[0.03] text-foreground hover:border-cyan-accent/60 hover:text-cyan-accent hover:bg-white/[0.06]";
+      : "border border-foreground/15 bg-foreground/[0.04] text-foreground hover:border-cyan-accent/60 hover:text-cyan-accent hover:bg-foreground/[0.07]";
   const width = fullWidthMobile ? "w-full sm:w-auto" : "";
   return (
     <a href={href} className={`${base} ${styles} ${width} ${className}`}>

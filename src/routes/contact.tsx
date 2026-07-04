@@ -199,7 +199,7 @@ function InfoCard({
   const inner = (
     <>
       <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-4">
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white/[0.04] text-cyan-accent">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] text-cyan-accent">
           {icon}
         </span>
         <div className="min-w-0">

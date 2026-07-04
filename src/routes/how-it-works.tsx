@@ -102,7 +102,7 @@ function HowItWorks() {
                   key={i.name}
                   className="group relative flex items-center gap-3 rounded-xl border border-hairline bg-surface p-4 transition-all hover:border-cyan-accent/50"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white/[0.04] text-cyan-accent">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] text-cyan-accent">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div className="min-w-0">

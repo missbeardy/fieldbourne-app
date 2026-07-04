@@ -68,7 +68,7 @@ function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-28 lg:pt-32">
         <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-hairline bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <div className="inline-flex items-center gap-2 rounded-full border border-hairline bg-foreground/[0.04] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
               Job management for trade businesses
             </div>
@@ -89,7 +89,7 @@ function Hero() {
               <CTAButton href={site.bookingUrl}>Book a free chat</CTAButton>
               <Link
                 to="/how-it-works"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-6 py-4 text-base font-bold text-foreground transition-all hover:border-cyan-accent/60 hover:text-cyan-accent sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-foreground/15 bg-foreground/[0.04] px-6 py-4 text-base font-bold text-foreground transition-all hover:border-cyan-accent/60 hover:text-cyan-accent sm:w-auto"
               >
                 See the live board
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -118,7 +118,7 @@ function CompanionCard() {
     <div className="relative">
       <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-brand/30 via-transparent to-cyan-accent/20 blur-2xl" />
       <div className="relative overflow-hidden rounded-3xl border border-hairline bg-surface/70 backdrop-blur-xl">
-        <div className="flex items-center justify-between border-b border-hairline bg-white/[0.02] px-5 py-3">
+        <div className="flex items-center justify-between border-b border-hairline bg-foreground/[0.03] px-5 py-3">
           <div className="flex items-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px] shadow-emerald-400/60" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
@@ -139,7 +139,7 @@ function CompanionCard() {
             {heroStats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-xl border border-hairline bg-white/[0.03] p-3 text-center"
+                className="rounded-xl border border-hairline bg-foreground/[0.04] p-3 text-center"
               >
                 <div className="text-2xl font-black text-brand sm:text-3xl">
                   {s.value}
@@ -213,8 +213,8 @@ function FeedRow({
   sub: string;
 }) {
   return (
-    <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-hairline bg-white/[0.02] px-3 py-2.5">
-      <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/[0.04] ${tagColor}`}>
+    <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-hairline bg-foreground/[0.03] px-3 py-2.5">
+      <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] ${tagColor}`}>
         {icon}
       </span>
       <div className="min-w-0">
@@ -336,7 +336,7 @@ function OutcomesSection() {
                 className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-cyan-accent/50"
               >
                 <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-5">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border border-hairline bg-white/[0.03] text-cyan-accent">
+                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border border-hairline bg-foreground/[0.04] text-cyan-accent">
                     <Icon className="h-6 w-6" />
                   </div>
                   <div className="min-w-0">
