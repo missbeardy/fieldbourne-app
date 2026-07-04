@@ -68,7 +68,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           </button>
           <a
             href="/"
-            className="rounded-xl border border-hairline bg-white/[0.03] px-5 py-3 text-sm font-bold text-foreground hover:bg-white/[0.06]"
+            className="rounded-xl border border-hairline bg-foreground/[0.04] px-5 py-3 text-sm font-bold text-foreground hover:bg-foreground/[0.07]"
           >
             Go home
           </a>
@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Job management for Australian trade businesses. One system for leads, scheduling and follow-ups, built around how you already work.",
       },
       { name: "author", content: "FieldBourne Digital" },
-      { name: "theme-color", content: "#0b1220" },
+      { name: "theme-color", content: "#f7f4ec" },
       { property: "og:title", content: "FieldBourne Digital — Run your jobs. Not your inbox." },
       {
         property: "og:description",
