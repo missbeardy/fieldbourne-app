@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Job management for Australian trade businesses. One system for leads, scheduling and follow-ups, built around how you already work.",
       },
       { name: "author", content: "FieldBourne Digital" },
-      { name: "theme-color", content: "#0b1220" },
+      { name: "theme-color", content: "#f7f4ec" },
       { property: "og:title", content: "FieldBourne Digital — Run your jobs. Not your inbox." },
       {
         property: "og:description",
