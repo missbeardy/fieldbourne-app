@@ -52,6 +52,7 @@ function HowItWorks() {
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8">
           <SectionHeader
             eyebrow="How FieldBourne Digital works"
+            accent="yellow"
             title={
               <>
                 Proven modules.{" "}
@@ -71,7 +72,7 @@ function HowItWorks() {
                 key={s.n}
                 className="relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-brand/50"
               >
-                <div className="text-6xl font-black leading-none text-brand/80">
+                <div className="text-6xl font-black leading-none text-cyan-accent/90">
                   {s.n}
                 </div>
                 <h3 className="mt-4 text-lg font-black tracking-tight text-foreground">
@@ -132,7 +133,7 @@ function HowItWorks() {
 
       <section className="border-t border-hairline bg-surface/40">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <div className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-brand">
+          <div className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
             📺 Live client: FieldBourne Companion
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
