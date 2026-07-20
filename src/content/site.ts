@@ -1,12 +1,13 @@
+export const SITE_URL = "https://fieldbournedigital.com.au";
+
 export const site = {
   name: "FieldBourne Digital",
   tagline: "Run your jobs. Not your inbox.",
-  bookingUrl: "https://fieldbournedigital.com.au/#contact",
+  bookingUrl: "/contact",
   email: "admin@fieldbournedigital.com.au",
   abn: "22 324 219 568",
   location: "Beaudesert, QLD",
-  caseStudyUrl: "https://fieldbournedigital.com.au/tvmagic.html",
-  aboutUrl: "https://fieldbournedigital.com.au/about.html",
+  caseStudyUrl: "/about",
 };
 
 export const nav = [
@@ -51,7 +52,7 @@ export const paths = [
       "Stop typing things twice",
       "Self-serve tier launching soon",
     ],
-    cta: { label: "Join self-serve waitlist", href: "https://fieldbournedigital.com.au/?path=solo#contact" },
+    cta: { label: "Join self-serve waitlist", href: "/contact?path=solo" },
   },
   {
     tag: "Path B",
@@ -62,7 +63,7 @@ export const paths = [
       "Multi-site reporting",
       "Done-for-you implementation",
     ],
-    cta: { label: "Book a free chat", href: "https://fieldbournedigital.com.au/?path=team#contact" },
+    cta: { label: "Book a free chat", href: "/contact?path=team" },
   },
 ];
 
@@ -114,19 +115,18 @@ export const outcomes = [
 
 export const integrations = [
   { name: "SMS & phone", sub: "Twilio", icon: "MessageSquare" },
-  { name: "Email", sub: "Any provider", icon: "Mail" },
-  { name: "Calendar", sub: "Google · Apple", icon: "Calendar" },
-  { name: "Payments", sub: "Stripe", icon: "CreditCard" },
-  { name: "Facebook & Instagram", sub: "Meta lead ads", icon: "Share2" },
-  { name: "Google", sub: "Business & Ads", icon: "Search" },
-  { name: "Xero", sub: "Soon", icon: "Receipt", soon: true },
-  { name: "MYOB", sub: "Soon", icon: "BarChart3", soon: true },
+  { name: "Email & voicemail", sub: "Any provider", icon: "Mail" },
+  { name: "Facebook Messenger", sub: "Enquiries captured", icon: "Share2" },
+  { name: "Payments", sub: "Stripe — Pay Now on invoices", icon: "CreditCard" },
+  { name: "Calendar invites", sub: "Works with Google & Apple (.ics)", icon: "Calendar" },
+  { name: "Google reviews", sub: "Review requests, sent for you", icon: "Search" },
+  { name: "Xero", sub: "CSV export today · live sync on the roadmap", icon: "Receipt" },
 ];
 
 export const pricingIncludes = {
   services: [
     "We connect your tools",
-    "We streamline your workflow around how you already work",
+    "We shape the system around how you already work",
     "We train you and your team on the system",
   ],
   features: [

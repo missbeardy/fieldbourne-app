@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Sparkles, Wrench } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { paths, pricingIncludes, site } from "@/content/site";
+import { paths, pricingIncludes, site, SITE_URL } from "@/content/site";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -16,10 +16,11 @@ export const Route = createFileRoute("/pricing")({
       { property: "og:title", content: "Pricing — FieldBourne Digital" },
       {
         property: "og:description",
-        content:
-          "Premium features at our entry rate. No per-user charges. No lock-in.",
+        content: "Premium features at our entry rate. No per-user charges. No lock-in.",
       },
+      { property: "og:url", content: `${SITE_URL}/pricing` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/pricing` }],
   }),
   component: Pricing,
 });
@@ -31,8 +32,9 @@ function Pricing() {
         <div className="grid-fade pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8">
           <SectionHeader
+            as="h1"
             eyebrow="Same platform. Different entry point."
-            accent="yellow"
+            accent="warm"
             title="Pick the path that fits your business."
             subtitle="Solo operators and franchise head offices need different things. We take you to the right next step from here."
           />
@@ -47,20 +49,18 @@ function Pricing() {
                 key={p.tag}
                 className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-brand/50 sm:p-10"
               >
-                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-cyan-accent/60" />
-                <div className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
+                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-accent-warm/60" />
+                <div className="text-xs font-bold uppercase tracking-[0.25em] text-accent-warm">
                   {p.tag}
                 </div>
                 <h3 className="mt-3 text-3xl font-black tracking-tight text-foreground sm:text-4xl">
                   {p.title}
                 </h3>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                  {p.body}
-                </p>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{p.body}</p>
                 <ul className="mt-6 space-y-3">
                   {p.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-sm text-foreground/90">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-accent" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent-warm" />
                       {b}
                     </li>
                   ))}
@@ -82,8 +82,7 @@ function Pricing() {
             eyebrow="Foundational Client"
             title={
               <>
-                Premium features at{" "}
-                <span className="text-brand">our entry rate.</span>
+                Premium features at <span className="text-brand">our entry rate.</span>
               </>
             }
             subtitle="As a new business, we are taking on a small number of foundational clients. You get the full professional build while we grow. There is a one-time implementation fee plus a flat monthly subscription. We quote both on your free chat, so you know what you're in for before anything starts."
@@ -105,13 +104,12 @@ function Pricing() {
                   Quoted on your free chat. No surprises.
                 </p>
                 <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                  Full platform access for early clients who help shape the product.
-                  Premium features without the premium price tag while we build our
-                  client base.
+                  Full platform access for early clients who help shape the product. Premium
+                  features without the premium price tag while we build our client base.
                 </p>
 
                 <div className="mt-8">
-                  <div className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-accent">
+                  <div className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-accent-warm">
                     What we do
                   </div>
                   <ul className="space-y-2.5">
@@ -127,8 +125,7 @@ function Pricing() {
                 <div className="mt-8">
                   <CTAButton href={site.bookingUrl}>Book a free chat</CTAButton>
                   <p className="mt-3 text-xs text-muted-foreground">
-                    No per-user charges. No lock-in contracts. Exact costs confirmed on
-                    the call.
+                    No per-user charges. No lock-in contracts. Exact costs confirmed on the call.
                   </p>
                 </div>
               </div>

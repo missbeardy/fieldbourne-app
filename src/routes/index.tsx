@@ -14,13 +14,7 @@ import {
 } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import {
-  heroStats,
-  outcomes,
-  paths,
-  problemStats,
-  site,
-} from "@/content/site";
+import { heroStats, outcomes, paths, problemStats, site, SITE_URL } from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,7 +34,9 @@ export const Route = createFileRoute("/")({
         content:
           "Stop juggling five apps. Capture every lead, assign every job, and finish admin before 9pm.",
       },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Home,
 });
@@ -80,18 +76,17 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              One system for leads, scheduling and follow-ups, built around how you
-              already work. No ripping out the apps you use. No retyping the same job
-              details three times.
+              One system for leads, scheduling and follow-ups, built around how you already work. No
+              ripping out the apps you use. No retyping the same job details three times.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <CTAButton href={site.bookingUrl}>Book a free chat</CTAButton>
               <Link
                 to="/how-it-works"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-foreground/15 bg-foreground/[0.04] px-6 py-4 text-base font-bold text-foreground transition-all hover:border-cyan-accent/60 hover:text-cyan-accent sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-foreground/15 bg-foreground/[0.04] px-6 py-4 text-base font-bold text-foreground transition-all hover:border-accent-warm/60 hover:text-accent-warm sm:w-auto"
               >
-                See the live board
+                See how it works
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -99,7 +94,7 @@ function Hero() {
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               {["Bespoke to you", "Your tools connected", "Aussie owned"].map((f) => (
                 <div key={f} className="inline-flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-cyan-accent" />
+                  <CheckCircle2 className="h-4 w-4 text-accent-warm" />
                   {f}
                 </div>
               ))}
@@ -116,7 +111,7 @@ function Hero() {
 function CompanionCard() {
   return (
     <div className="relative">
-      <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-brand/30 via-transparent to-cyan-accent/20 blur-2xl" />
+      <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-brand/30 via-transparent to-accent-warm/20 blur-2xl" />
       <div className="relative overflow-hidden rounded-3xl border border-hairline bg-surface/70 backdrop-blur-xl">
         <div className="flex items-center justify-between border-b border-hairline bg-foreground/[0.03] px-5 py-3">
           <div className="flex items-center gap-2">
@@ -125,9 +120,7 @@ function CompanionCard() {
               Live now
             </span>
           </div>
-          <span className="text-xs font-semibold text-muted-foreground">
-            FieldBourne Companion
-          </span>
+          <span className="text-xs font-semibold text-muted-foreground">FieldBourne Companion</span>
         </div>
 
         <div className="p-5 sm:p-6">
@@ -141,9 +134,7 @@ function CompanionCard() {
                 key={s.label}
                 className="rounded-xl border border-hairline bg-foreground/[0.04] p-3 text-center"
               >
-                <div className="text-2xl font-black text-cyan-accent sm:text-3xl">
-                  {s.value}
-                </div>
+                <div className="text-2xl font-black text-accent-warm sm:text-3xl">{s.value}</div>
                 <div className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                   {s.label}
                 </div>
@@ -155,21 +146,21 @@ function CompanionCard() {
             <FeedRow
               icon={<Phone className="h-4 w-4" />}
               tag="New lead"
-              tagColor="text-cyan-accent"
-              title="Antenna install, Parramatta"
+              tagColor="text-accent-warm"
+              title="Antenna install, Sunnybank"
               sub="Just now"
             />
             <FeedRow
               icon={<Radio className="h-4 w-4" />}
               tag="Missed call"
               tagColor="text-brand"
-              title="Penrith · auto-reply sent"
+              title="Springwood · auto-reply sent"
               sub="4 min ago"
             />
             <FeedRow
               icon={<Users className="h-4 w-4" />}
               tag="Assigned"
-              tagColor="text-cyan-accent"
+              tagColor="text-accent-warm"
               title="Job #1041 · In progress"
               sub="Tech: Jake"
             />
@@ -177,18 +168,18 @@ function CompanionCard() {
               icon={<MapPin className="h-4 w-4" />}
               tag="Booked"
               tagColor="text-foreground"
-              title="Tomorrow 9am, Mount Druitt"
+              title="Tomorrow 9am, Mount Gravatt"
               sub="Confirmed by SMS"
             />
           </div>
 
           <div className="mt-5 flex items-center justify-between border-t border-hairline pt-4 text-xs">
             <span className="text-muted-foreground">
-              Real workflow from our first live client.
+              Modelled on our first live client's real workflow.
             </span>
             <a
               href={site.caseStudyUrl}
-              className="inline-flex items-center gap-1 rounded-lg bg-cyan-accent/90 px-3 py-1.5 text-xs font-bold text-foreground hover:bg-cyan-accent"
+              className="inline-flex items-center gap-1 rounded-lg bg-accent-warm/90 px-3 py-1.5 text-xs font-bold text-foreground hover:bg-accent-warm"
             >
               Case study <ArrowRight className="h-3.5 w-3.5" />
             </a>
@@ -214,13 +205,13 @@ function FeedRow({
 }) {
   return (
     <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-hairline bg-foreground/[0.03] px-3 py-2.5">
-      <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] ${tagColor}`}>
+      <span
+        className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] ${tagColor}`}
+      >
         {icon}
       </span>
       <div className="min-w-0">
-        <div className={`text-[10px] font-bold uppercase tracking-widest ${tagColor}`}>
-          {tag}
-        </div>
+        <div className={`text-[10px] font-bold uppercase tracking-widest ${tagColor}`}>{tag}</div>
         <div className="truncate text-sm font-semibold text-foreground">{title}</div>
       </div>
       <span className="text-[11px] text-muted-foreground">{sub}</span>
@@ -234,7 +225,7 @@ function ProblemBand() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <SectionHeader
           eyebrow="Sound familiar?"
-          accent="yellow"
+          accent="warm"
           title={
             <>
               Your tools don't talk to each other.{" "}
@@ -250,14 +241,12 @@ function ProblemBand() {
               key={s.label}
               className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-brand/40"
             >
-              <div className="text-5xl font-black text-cyan-accent sm:text-6xl">{s.value}</div>
+              <div className="text-5xl font-black text-accent-warm sm:text-6xl">{s.value}</div>
               <div className="mt-2 text-sm font-bold uppercase tracking-widest text-foreground">
                 {s.label}
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {s.body}
-              </p>
-              <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand/10 blur-2xl transition-opacity group-hover:opacity-100 opacity-0" />
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand/10 blur-2xl opacity-0 transition-opacity group-hover:opacity-100" />
             </div>
           ))}
         </div>
@@ -268,32 +257,30 @@ function ProblemBand() {
 
 function PathsSection() {
   return (
-      <section id="paths" className="relative">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <SectionHeader
-            eyebrow="Which sounds like you?"
-            accent="yellow"
-            title="Same platform. Different entry point."
-            subtitle="Solo operators and franchise head offices need different things. Pick the path that fits and we'll take you to the right next step."
-          />
+    <section id="paths" className="relative">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+        <SectionHeader
+          eyebrow="Which sounds like you?"
+          accent="warm"
+          title="Same platform. Different entry point."
+          subtitle="Solo operators and franchise head offices need different things. Pick the path that fits and we'll take you to the right next step."
+        />
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            {paths.map((p, i) => (
-              <div
-                key={p.tag}
-                className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-cyan-accent/40 sm:p-10"
-              >
-                <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-cyan-accent" />
-                <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-cyan-accent/60" />
-                <div className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
-                  {p.tag}
-                </div>
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {paths.map((p, i) => (
+            <div
+              key={p.tag}
+              className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface p-8 transition-all hover:border-accent-warm/40 sm:p-10"
+            >
+              <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-accent-warm" />
+              <div className="absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-accent-warm/60" />
+              <div className="text-xs font-bold uppercase tracking-[0.25em] text-accent-warm">
+                {p.tag}
+              </div>
               <h3 className="mt-3 text-3xl font-black tracking-tight text-foreground sm:text-4xl">
                 {p.title}
               </h3>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                {p.body}
-              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{p.body}</p>
               <ul className="mt-6 space-y-3">
                 {p.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-sm text-foreground/90">
@@ -305,10 +292,7 @@ function PathsSection() {
                 ))}
               </ul>
               <div className="mt-8">
-                <CTAButton
-                  href={p.cta.href}
-                  variant={i === 0 ? "ghost" : "primary"}
-                >
+                <CTAButton href={p.cta.href} variant={i === 0 ? "ghost" : "primary"}>
                   {p.cta.label}
                 </CTAButton>
               </div>
@@ -324,10 +308,7 @@ function OutcomesSection() {
   return (
     <section className="border-t border-hairline bg-surface/40">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <SectionHeader
-          eyebrow="What you get"
-          title="Four outcomes. One system."
-        />
+        <SectionHeader eyebrow="What you get" title="Four outcomes. One system." />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {outcomes.map((o, i) => {
@@ -335,22 +316,20 @@ function OutcomesSection() {
             return (
               <div
                 key={o.n}
-                className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-cyan-accent/50"
+                className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-accent-warm/50"
               >
                 <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-5">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border border-hairline bg-foreground/[0.04] text-cyan-accent">
+                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border border-hairline bg-foreground/[0.04] text-accent-warm">
                     <Icon className="h-6 w-6" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-widest text-cyan-accent">
+                    <div className="text-xs font-bold uppercase tracking-widest text-accent-warm">
                       {o.n}
                     </div>
                     <h3 className="mt-1 text-xl font-black tracking-tight text-foreground sm:text-2xl">
                       {o.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {o.body}
-                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{o.body}</p>
                   </div>
                 </div>
               </div>
@@ -365,17 +344,17 @@ function OutcomesSection() {
 function FinalCTA() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-cyan-accent/[0.06] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-accent-warm/[0.06] to-transparent" />
       <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 md:py-28 lg:px-8">
-        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
-          <span className="h-px w-8 bg-cyan-accent" /> Let's talk
+        <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-accent-warm">
+          <span className="h-px w-8 bg-accent-warm" /> Let's talk
         </div>
         <h2 className="text-4xl font-black leading-tight tracking-tighter text-foreground sm:text-5xl md:text-6xl">
           Twenty minutes is all it takes to see if we're a fit.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          We'll show you how we saved a franchise client 12 hours a week on admin alone,
-          and how FieldBourne Digital can build a system for your business.
+          We'll show you how we saved a franchise client 12 hours a week on admin alone, and how
+          FieldBourne Digital can build a system for your business.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <CTAButton href={site.bookingUrl} fullWidthMobile={false} className="min-w-[240px]">
@@ -383,7 +362,7 @@ function FinalCTA() {
           </CTAButton>
           <Link
             to="/contact"
-            className="text-sm font-semibold text-muted-foreground hover:text-cyan-accent"
+            className="text-sm font-semibold text-muted-foreground hover:text-accent-warm"
           >
             Or send us a message →
           </Link>

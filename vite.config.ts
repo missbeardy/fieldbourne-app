@@ -6,10 +6,25 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Static GitHub Pages: TanStack Start prerender → dist/client.
+// nitro static/github-pages presets fail with this nitro beta + Lovable wrapper
+// (404 during nitro prerender + rolldown SSR HTML input error), so nitro is off.
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+      failOnError: true,
+    },
+    pages: [
+      { path: "/" },
+      { path: "/about" },
+      { path: "/contact" },
+      { path: "/how-it-works" },
+      { path: "/pricing" },
+    ],
   },
+  nitro: false,
 });

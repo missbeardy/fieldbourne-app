@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_URL } from "@/content/site";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
 
 function NotFoundComponent() {
   return (
@@ -77,25 +80,47 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "FieldBourne Connect streamlines job management for tradespeople, reducing administrative tasks." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "FieldBourne Connect streamlines job management for tradespeople, reducing administrative tasks." },
+      { title: "FieldBourne Digital — Run your jobs. Not your inbox." },
+      {
+        name: "description",
+        content:
+          "One system for leads, scheduling and follow-ups, built for Australian trade businesses. Aussie owned and operated.",
+      },
+      { name: "author", content: "FieldBourne Digital" },
+      { property: "og:site_name", content: "FieldBourne Digital" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "FieldBourne Connect streamlines job management for tradespeople, reducing administrative tasks." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1b1a27f7-7f4d-4547-9c2d-37707770591a/id-preview-8b12699d--b0229e67-a469-4567-b6d9-eeb444331aee.lovable.app-1783199742626.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1b1a27f7-7f4d-4547-9c2d-37707770591a/id-preview-8b12699d--b0229e67-a469-4567-b6d9-eeb444331aee.lovable.app-1783199742626.png" },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "FieldBourne Digital",
+          url: SITE_URL,
+          email: "admin@fieldbournedigital.com.au",
+          slogan: "Run your jobs. Not your inbox.",
+          identifier: {
+            "@type": "PropertyValue",
+            propertyID: "ABN",
+            value: "22 324 219 568",
+          },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Beaudesert",
+            addressRegion: "QLD",
+            addressCountry: "AU",
+          },
+          areaServed: "AU",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -106,7 +131,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <head>
         <HeadContent />
       </head>
@@ -123,8 +148,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Nav />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Footer />
     </QueryClientProvider>
   );
 }

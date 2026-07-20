@@ -14,13 +14,13 @@ export function Footer() {
               </span>
               <span className="text-lg font-black tracking-tight">
                 <span className="text-brand">Field</span>
-                <span className="text-cyan-accent">Bourne</span>
+                <span className="text-accent-warm">Bourne</span>
                 <span className="text-brand">.</span>
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Job management built for Australian trade businesses. One system for leads,
-              scheduling and follow-ups.
+              Job management built for Australian trade businesses. One system for leads, scheduling
+              and follow-ups.
             </p>
             <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
               <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px] shadow-emerald-400/60" />

@@ -15,6 +15,13 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -30,7 +37,7 @@ export function Nav() {
           </span>
           <span className="truncate text-base font-black tracking-tight sm:text-lg">
             <span className="text-brand">Field</span>
-            <span className="text-cyan-accent">Bourne</span>
+            <span className="text-accent-warm">Bourne</span>
             <span className="text-brand">.</span>
           </span>
         </Link>
@@ -56,7 +63,10 @@ export function Nav() {
             Book a free chat
           </a>
           <button
-            aria-label="Open menu"
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
             className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-hairline bg-foreground/[0.04] md:hidden"
           >
@@ -66,7 +76,10 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-hairline bg-background/95 backdrop-blur-xl md:hidden">
+        <div
+          id="mobile-nav"
+          className="border-t border-hairline bg-background/95 backdrop-blur-xl md:hidden"
+        >
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {nav.map((item) => (
               <Link

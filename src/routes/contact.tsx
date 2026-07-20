@@ -2,9 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, MapPin, Clock } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { site, tradeTypes } from "@/content/site";
+import { site, tradeTypes, SITE_URL } from "@/content/site";
 
 export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    path:
+      search.path === "solo" || search.path === "team"
+        ? (search.path as "solo" | "team")
+        : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Contact — FieldBourne Digital" },
@@ -16,15 +22,17 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact FieldBourne Digital" },
       {
         property: "og:description",
-        content:
-          "No call centre, no hand-off. Book a free 20-minute chat with Darren.",
+        content: "No call centre, no hand-off. Book a free 20-minute chat with Darren.",
       },
+      { property: "og:url", content: `${SITE_URL}/contact` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: Contact,
 });
 
 function Contact() {
+  const { path } = Route.useSearch();
   const [sent, setSent] = useState(false);
 
   return (
@@ -33,13 +41,12 @@ function Contact() {
         <div className="grid-fade pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-16 sm:px-6 sm:pt-24 lg:px-8">
           <SectionHeader
+            as="h1"
             eyebrow="Get in touch"
             title={
               <>
                 Tell us about your business.{" "}
-                <span className="text-brand">
-                  We'll reply within one business day.
-                </span>
+                <span className="text-brand">We'll reply within one business day.</span>
               </>
             }
             subtitle="Darren personally onboards every new business. No call centre, no hand-off."
@@ -85,22 +92,28 @@ function Contact() {
                 e.preventDefault();
                 const form = e.currentTarget as HTMLFormElement;
                 const data = new FormData(form);
-                const params = new URLSearchParams();
-                data.forEach((v, k) => params.set(k, String(v)));
                 window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-                  "FieldBourne enquiry — " + (data.get("name") || "New lead")
+                  "FieldBourne enquiry — " + (data.get("name") || "New lead"),
                 )}&body=${encodeURIComponent(
                   Array.from(data.entries())
                     .map(([k, v]) => `${k}: ${v}`)
-                    .join("\n")
+                    .join("\n"),
                 )}`;
                 setSent(true);
               }}
               className="rounded-3xl border border-hairline bg-surface p-6 sm:p-8"
             >
+              {path && (
+                <div className="mb-4 rounded-xl border border-brand/40 bg-brand/10 px-4 py-3 text-sm text-foreground">
+                  {path === "solo"
+                    ? "Self-serve waitlist — leave your details below and you're on it."
+                    : "Team or franchise — tell us a bit about the operation and we'll come prepared."}
+                </div>
+              )}
               <div className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-brand">
                 Book a free chat
               </div>
+              {path && <input type="hidden" name="enquiry_path" value={path} />}
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Name" name="name" required />
                 <Field label="Business" name="business" required />
@@ -109,10 +122,14 @@ function Contact() {
               </div>
 
               <div className="mt-4">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                <label
+                  htmlFor="contact-trade"
+                  className="mb-2 block text-xs font-bold uppercase tracking-widest text-muted-foreground"
+                >
                   Trade type (optional)
                 </label>
                 <select
+                  id="contact-trade"
                   name="trade"
                   className="w-full rounded-xl border border-hairline bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-brand"
                   defaultValue=""
@@ -129,10 +146,14 @@ function Contact() {
               </div>
 
               <div className="mt-4">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                <label
+                  htmlFor="contact-message"
+                  className="mb-2 block text-xs font-bold uppercase tracking-widest text-muted-foreground"
+                >
                   Anything else? (optional)
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   rows={4}
                   className="w-full rounded-xl border border-hairline bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-brand"
@@ -142,13 +163,20 @@ function Contact() {
 
               <button
                 type="submit"
-                className="mt-6 w-full rounded-xl bg-brand px-6 py-4 text-base font-bold text-brand-foreground shadow-[0_10px_40px_-10px_var(--brand)] transition-all hover:bg-brand-glow hover:-translate-y-0.5"
+                className="mt-6 w-full rounded-xl bg-brand px-6 py-4 text-base font-bold text-brand-foreground shadow-[0_10px_40px_-10px_var(--brand)] transition-all hover:bg-brand-glow motion-safe:hover:-translate-y-0.5"
               >
                 Send message →
               </button>
               {sent && (
-                <p className="mt-4 text-center text-sm text-cyan-accent">
-                  Opening your email client — thanks!
+                <p className="mt-4 text-center text-sm text-accent-warm">
+                  Opening your email app now. If nothing opens, email us directly at{" "}
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    {site.email}
+                  </a>
+                  .
                 </p>
               )}
             </form>
@@ -170,12 +198,17 @@ function Field({
   type?: string;
   required?: boolean;
 }) {
+  const id = `contact-${name}`;
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-muted-foreground">
+      <label
+        htmlFor={id}
+        className="mb-2 block text-xs font-bold uppercase tracking-widest text-muted-foreground"
+      >
         {label}
       </label>
       <input
+        id={id}
         name={name}
         type={type}
         required={required}
@@ -199,13 +232,11 @@ function InfoCard({
   const inner = (
     <>
       <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-4">
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] text-cyan-accent">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] text-accent-warm">
           {icon}
         </span>
         <div className="min-w-0">
-          <div className="text-xs font-bold uppercase tracking-widest text-brand">
-            {title}
-          </div>
+          <div className="text-xs font-bold uppercase tracking-widest text-brand">{title}</div>
           {lines.map((l) => (
             <div key={l} className="mt-1 truncate text-sm text-foreground/90">
               {l}
@@ -216,7 +247,7 @@ function InfoCard({
     </>
   );
   const cls =
-    "block rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-cyan-accent/40";
+    "block rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-accent-warm/40";
   return href ? (
     <a href={href} className={cls}>
       {inner}

@@ -1,17 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  MessageSquare,
-  Mail,
-  Calendar,
-  CreditCard,
-  Share2,
-  Search,
-  Receipt,
-  BarChart3,
-} from "lucide-react";
+import { MessageSquare, Mail, Calendar, CreditCard, Share2, Search, Receipt } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { integrations, site, steps } from "@/content/site";
+import { integrations, site, steps, SITE_URL } from "@/content/site";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -28,7 +19,9 @@ export const Route = createFileRoute("/how-it-works")({
         content:
           "Learn how we wire your existing tools together and configure modules for your trade.",
       },
+      { property: "og:url", content: `${SITE_URL}/how-it-works` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/how-it-works` }],
   }),
   component: HowItWorks,
 });
@@ -41,7 +34,6 @@ const iconMap = {
   Share2,
   Search,
   Receipt,
-  BarChart3,
 };
 
 function HowItWorks() {
@@ -51,12 +43,12 @@ function HowItWorks() {
         <div className="grid-fade pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8">
           <SectionHeader
+            as="h1"
             eyebrow="How FieldBourne Digital works"
-            accent="yellow"
+            accent="warm"
             title={
               <>
-                Proven modules.{" "}
-                <span className="text-brand">Configured for your trade.</span>
+                Proven modules. <span className="text-brand">Configured for your trade.</span>
               </>
             }
             subtitle="No generic templates. We start with a conversation, wire up the tools you already use, then configure the modules that fit how you actually work."
@@ -72,15 +64,11 @@ function HowItWorks() {
                 key={s.n}
                 className="relative overflow-hidden rounded-2xl border border-hairline bg-surface p-7 transition-all hover:border-brand/50"
               >
-                <div className="text-6xl font-black leading-none text-cyan-accent/90">
-                  {s.n}
-                </div>
+                <div className="text-6xl font-black leading-none text-accent-warm/90">{s.n}</div>
                 <h3 className="mt-4 text-lg font-black tracking-tight text-foreground">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {s.body}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
               </li>
             ))}
           </ol>
@@ -101,20 +89,16 @@ function HowItWorks() {
               return (
                 <div
                   key={i.name}
-                  className="group relative flex items-center gap-3 rounded-xl border border-hairline bg-surface p-4 transition-all hover:border-cyan-accent/50"
+                  className="group relative flex items-center gap-3 rounded-xl border border-hairline bg-surface p-4 transition-all hover:border-accent-warm/50"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] text-cyan-accent">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-foreground/[0.05] text-accent-warm">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-bold text-foreground">
-                      {i.name}
-                    </div>
-                    <div className="truncate text-xs text-muted-foreground">
-                      {i.sub}
-                    </div>
+                    <div className="truncate text-sm font-bold text-foreground">{i.name}</div>
+                    <div className="truncate text-xs text-muted-foreground">{i.sub}</div>
                   </div>
-                  {i.soon && (
+                  {"soon" in i && (i as { soon?: boolean }).soon && (
                     <span className="absolute right-2 top-2 rounded-full bg-brand/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-brand">
                       Soon
                     </span>
@@ -125,15 +109,15 @@ function HowItWorks() {
           </div>
 
           <p className="mt-8 max-w-2xl text-sm text-muted-foreground">
-            We're not asking you to rip out your accounting software. We wire your job
-            data to where it needs to go.
+            We're not asking you to rip out your accounting software. We wire your job data to where
+            it needs to go.
           </p>
         </div>
       </section>
 
       <section className="border-t border-hairline bg-surface/40">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <div className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-cyan-accent">
+          <div className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-accent-warm">
             📺 Live client: FieldBourne Companion
           </div>
           <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
@@ -143,10 +127,9 @@ function HowItWorks() {
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground">
-            Every lead captured automatically via SMS, email, and missed call. Jobs
-            assigned with one click. The owner sees live status across the whole team
-            from any device. This is what FieldBourne Digital looks like in a real
-            business.
+            Every lead captured automatically via SMS, email, and missed call. Jobs assigned with
+            one click. The owner sees live status across the whole team from any device. This is
+            what FieldBourne Digital looks like in a real business.
           </p>
           <div className="mt-8 flex justify-center">
             <CTAButton href={site.caseStudyUrl} fullWidthMobile={false}>

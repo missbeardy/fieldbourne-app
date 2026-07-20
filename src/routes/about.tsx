@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Quote } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { site } from "@/content/site";
+import { site, SITE_URL } from "@/content/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -16,10 +16,11 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About FieldBourne Digital" },
       {
         property: "og:description",
-        content:
-          "Individual problems solved. Zero templates used. Aussie owned and operated.",
+        content: "Individual problems solved. Zero templates used. Aussie owned and operated.",
       },
+      { property: "og:url", content: `${SITE_URL}/about` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
   component: About,
 });
@@ -31,11 +32,11 @@ function About() {
         <div className="grid-fade pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8">
           <SectionHeader
+            as="h1"
             eyebrow="Built by hand"
             title={
               <>
-                Individual problems solved.{" "}
-                <span className="text-brand">Zero templates used.</span>
+                Individual problems solved. <span className="text-brand">Zero templates used.</span>
               </>
             }
           />
@@ -49,12 +50,12 @@ function About() {
               D
             </div>
             <div>
-              <Quote className="h-8 w-8 text-cyan-accent" />
+              <Quote className="h-8 w-8 text-accent-warm" />
               <blockquote className="mt-4 text-xl leading-relaxed text-foreground sm:text-2xl">
-                "I'm Darren. I built FieldBourne Digital because I kept seeing tradies
-                duct-taping spreadsheets, text messages and calendars together, losing
-                hours to unnecessary admin. FieldBourne Companion was our first build,
-                using the same modular approach, configured for their trade.{" "}
+                "I'm Darren. I built FieldBourne Digital because I kept seeing tradies duct-taping
+                spreadsheets, text messages and calendars together, losing hours to unnecessary
+                admin. FieldBourne Companion was our first build, using the same modular approach,
+                configured for their trade.{" "}
                 <span className="text-brand">
                   I'd rather show you it working than talk at you about features.
                 </span>
@@ -77,16 +78,15 @@ function About() {
             Not Darren. <span className="text-brand">Nick, franchise owner.</span>
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Our first franchise client on FieldBourne Companion. Full client video
-            coming soon.
+            Our first franchise client on FieldBourne Companion. Full client video coming soon.
           </p>
 
           <div className="relative mt-10 overflow-hidden rounded-3xl border border-hairline bg-surface p-8 sm:p-12">
-            <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-cyan-accent/10 blur-3xl" />
-            <Quote className="h-10 w-10 text-cyan-accent" />
+            <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-accent-warm/10 blur-3xl" />
+            <Quote className="h-10 w-10 text-accent-warm" />
             <blockquote className="mt-4 text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-3xl">
-              "We saved about <span className="text-brand">12 hours a week</span> on
-              admin. Leads land in one place and I book from my phone."
+              "We saved about <span className="text-brand">12 hours a week</span> on admin. Leads
+              land in one place and I book from my phone."
             </blockquote>
             <div className="mt-6 text-sm font-semibold text-muted-foreground">
               TV aerial franchise · FieldBourne Companion · first live client
@@ -101,8 +101,7 @@ function About() {
             Want to see it working?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Twenty-minute chat. No sales pitch. We show you what your workflow could
-            look like.
+            Twenty-minute chat. No sales pitch. We show you what your workflow could look like.
           </p>
           <div className="mt-8 flex justify-center">
             <CTAButton href={site.bookingUrl} fullWidthMobile={false} className="min-w-[240px]">
